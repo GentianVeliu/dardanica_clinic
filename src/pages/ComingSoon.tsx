@@ -10,7 +10,7 @@ const ComingSoon: React.FC = () => {
         <div className="min-h-screen bg-gradient-to-br from-[#0B2944] via-[#1e4a6b] to-[#0B2944] flex items-center justify-center p-4">
             <div className="max-w-4xl mx-auto text-center">
                 {/* Logo placeholder - you can replace this with your actual logo */}
-                <div className="mb-12">
+                <div className="mb-4">
                     <div className="w-40 h-40 mx-auto">
                         <img
                             src={logoAll}
@@ -27,10 +27,29 @@ const ComingSoon: React.FC = () => {
                 </h1>
 
                 {/* Subtitle */}
-                <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-2xl mx-auto leading-relaxed">
+                <p className="text-xl md:text-2xl text-gray-300 mb-4 max-w-2xl mx-auto leading-relaxed">
                     Po punojmë për të sjellë diçka të jashtëzakonshme.
                     Mbani kontakt për lajme të reja!
                 </p>
+
+                {/* Progress indicator */}
+                <div className="max-w-md mx-auto">
+                    <div className="flex justify-between text-sm text-gray-400 mb-2">
+                        <span>Progress</span>
+                        <span>75%</span>
+                    </div>
+                    <div className="w-full bg-white/20 rounded-full h-3">
+                        <div className="bg-gradient-to-r from-[#F7DD72] to-yellow-400 h-3 rounded-full transition-all duration-1000 ease-out" style={{ width: '75%' }}></div>
+                    </div>
+                </div>
+
+                {/* Animated dots */}
+                <div className="flex justify-center space-x-2 mt-6 mb-10">
+                    <div className="w-3 h-3 bg-[#F7DD72] rounded-full animate-bounce"></div>
+                    <div className="w-3 h-3 bg-[#F7DD72] rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                    <div className="w-3 h-3 bg-[#F7DD72] rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                </div>
+
 
                 {/* Contact section */}
                 <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 md:p-12 mb-12 border border-white/20">
@@ -58,23 +77,7 @@ const ComingSoon: React.FC = () => {
                     </div>
                 </div>
 
-                {/* Progress indicator */}
-                <div className="max-w-md mx-auto">
-                    <div className="flex justify-between text-sm text-gray-400 mb-2">
-                        <span>Progress</span>
-                        <span>75%</span>
-                    </div>
-                    <div className="w-full bg-white/20 rounded-full h-3">
-                        <div className="bg-gradient-to-r from-[#F7DD72] to-yellow-400 h-3 rounded-full transition-all duration-1000 ease-out" style={{ width: '75%' }}></div>
-                    </div>
-                </div>
 
-                {/* Animated dots */}
-                <div className="flex justify-center space-x-2 mt-12">
-                    <div className="w-3 h-3 bg-[#F7DD72] rounded-full animate-bounce"></div>
-                    <div className="w-3 h-3 bg-[#F7DD72] rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                    <div className="w-3 h-3 bg-[#F7DD72] rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
-                </div>
             </div>
         </div>
     );

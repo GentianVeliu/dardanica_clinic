@@ -8,27 +8,25 @@ import Contact from './pages/Contact';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfUse from './pages/TermsOfUse';
 import ComingSoon from './pages/ComingSoon';
+import NotFound from './pages/NotFound';
 
 const App: React.FC = () => (
   <Router>
     <div className="min-h-screen flex flex-col">
-      <Navbar />
+      {/* <Navbar /> */}
       <main className="flex-grow">
         <Routes>
-          <Route path="/" element={<Home />} />
+          {/* <Route path="/" element={<Home />} />
           <Route path="/dermatologji" element={<Dermatology />} />
           <Route path="/stomatologji" element={<Stomatology />} />
           <Route path="/estetika" element={<Estetika />} />
           <Route path="/kontakt" element={<Contact />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
-          <Route path="/terms" element={<TermsOfUse />} />
-          <Route path="/coming-soon" element={<ComingSoon />} />
-          {/* Add more routes as needed */}
+          <Route path="/terms" element={<TermsOfUse />} /> */}
+          <Route path="/" element={<ComingSoon />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
-      {/* <footer className="bg-gray-800 text-[#F7DD72] py-4 text-center">
-        © 2025 Dardanica Clinic
-      </footer> */}
     </div>
   </Router>
 );
