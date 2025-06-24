@@ -1,12 +1,4 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Home from './pages/Home';
-import Stomatology from './pages/Stomatology';
-import Dermatology from './pages/Dermatology';
-import Estetika from './pages/Estetika';
-import Contact from './pages/Contact';
-import PrivacyPolicy from './pages/PrivacyPolicy';
-import TermsOfUse from './pages/TermsOfUse';
 import ComingSoon from './pages/ComingSoon';
 import NotFound from './pages/NotFound';
 

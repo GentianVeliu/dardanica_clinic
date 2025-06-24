@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Star, ChevronLeft, ChevronRight, Shield, Award, Clock, Users, CheckCircle, Phone, Mail, MapPin, Zap } from 'lucide-react';
+import { Star, ChevronRight, Shield, Award, Users, CheckCircle, Zap } from 'lucide-react';
 
 // Local asset imports
 import dentClinic1 from '../assets/dent-clinic-1.jpg';
@@ -125,7 +125,7 @@ const Stomatologji: React.FC = () => {
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {procedures.map((svc, idx) => (
+                        {procedures.map((svc) => (
                             <div key={svc.title}
                                 className="group bg-white rounded-3xl shadow-lg hover:shadow-2xl 
                                           transition-all duration-500 overflow-hidden border border-gray-100

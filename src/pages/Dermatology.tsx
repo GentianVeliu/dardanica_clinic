@@ -181,7 +181,7 @@ const Dermatologji: React.FC = () => {
                     </div>
 
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                        {treatments.map((treatment, index) => (
+                        {treatments.map((treatment) => (
                             <div key={treatment.title} className="group hover:shadow-2xl transition-all duration-300 border-0 shadow-lg overflow-hidden rounded-lg border bg-white text-gray-900">
                                 <div className="relative">
                                     <img

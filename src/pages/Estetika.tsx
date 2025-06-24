@@ -32,12 +32,6 @@ const specialists = [
     { name: 'Dr. Marko Selmani', title: 'Specialist Fillers', img: fillerImg2 },
 ];
 
-const pricing = [
-    { plan: 'Standard', price: '€150', features: ['Botoks 1 zonë', 'Konsultë'] },
-    { plan: 'Premium', price: '€250', features: ['Botoks 2 zona', 'Fillers 1 zonë', 'Konsultë'] },
-    { plan: 'Deluxe', price: '€350', features: ['Botoks 3 zona', 'Fillers 2 zona', 'Follow-up'] },
-];
-
 const faq = [
     { q: 'Sa zgjat efekti i botoksit?', a: 'Rreth 4–6 muaj, varësisht nga metabolizmi.' },
     { q: 'A dua pushim pas trajtimit?', a: 'Jo; mund të vazhdoni aktivitetet normale.' },
