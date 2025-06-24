@@ -65,9 +65,9 @@ const Contact: React.FC = () => {
                 <div className="container mx-auto px-4">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-2">
                         {contactInfo.map((item) => {
-                            const cleanedNumber = item.info
-                                .replace(/[^+\d]/g, '')
-                                .replace(/^\+/, '');
+                            // const cleanedNumber = item.info
+                            //     .replace(/[^+\d]/g, '')
+                            //     .replace(/^\+/, '');
                             const isPhone = item.title === 'Telefoni';
                             const isEmail = item.title === 'Email';
 

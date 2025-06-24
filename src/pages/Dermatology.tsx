@@ -181,8 +181,8 @@ const Dermatologji: React.FC = () => {
                     </div>
 
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                        {treatments.map((treatment, index) => (
-                            <div key={treatment.title} className="group hover:shadow-2xl transition-all duration-300 border-0 shadow-lg overflow-hidden rounded-lg border bg-white text-gray-900">
+                        {treatments.map((treatment) => (
+                            <div key={treatment.title} className="group hover:shadow-2xl transition-all duration-300 shadow-lg overflow-hidden rounded-lg border bg-white text-gray-900">
                                 <div className="relative">
                                     <img
                                         src={treatment.img}
@@ -265,7 +265,7 @@ const Dermatologji: React.FC = () => {
 
                     <div className="space-y-4">
                         {faq.map((item, index) => (
-                            <div key={index} className="rounded-lg border bg-white text-gray-900 shadow-sm overflow-hidden shadow-lg border-0">
+                            <div key={index} className="rounded-lg border bg-white text-gray-900 shadow-sm overflow-hidden">
                                 <button
                                     onClick={() => toggleFaq(index)}
                                     className="w-full text-left p-6 hover:bg-gray-50 transition-colors duration-200"
