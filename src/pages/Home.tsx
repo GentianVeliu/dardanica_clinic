@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
 
 // Hero & services images
-import clinicLobby from '../assets/clinic-1.jpg';
 import stomatologyImg3 from '../assets/dent-clinic-3.jpg';
 import dermatologyImg from '../assets/derma-clinic-1.jpg';
 import fillersImg from '../assets/filler-clinic-1.jpg';
@@ -64,7 +63,7 @@ const Home: React.FC = () => {
                     </div>
                     <div className="md:w-1/2">
                         <img
-                            src={clinicLobby}
+                            src={clinic1}
                             alt="Clinic Lobby"
                             className="w-full max-w-md sm:max-w-lg md:max-w-xl mx-auto rounded-2xl shadow-2xl object-cover"
                         />
