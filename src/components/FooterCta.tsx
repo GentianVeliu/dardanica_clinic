@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Phone, MapPin, Mail } from 'lucide-react';
-import { FaFacebookF, FaInstagram, FaTiktok } from 'react-icons/fa';
+import { FaFacebookF, FaInstagram } from 'react-icons/fa';
 
 interface WorkingHour {
     day: string;
@@ -106,9 +106,9 @@ const FooterCTA: React.FC<FooterCTAProps> = ({
                     <div>
                         <h4 className="font-semibold mb-2">Shërbimet</h4>
                         <ul className="text-sm space-y-1">
-                            <li><Link to="/sherbimet#stomatologji" className="hover:underline">Stomatologji</Link></li>
-                            <li><Link to="/sherbimet#dermatologji" className="hover:underline">Dermatologji</Link></li>
-                            <li><Link to="/sherbimet#estetika" className="hover:underline">Trajtime Estetike</Link></li>
+                            <li><Link to="/dermatologji" className="hover:underline">Dermatologji</Link></li>
+                            <li><Link to="/stomatologji" className="hover:underline">Stomatologji</Link></li>
+                            <li><Link to="/estetika" className="hover:underline">Trajtime Estetike</Link></li>
                         </ul>
                     </div>
 
@@ -124,9 +124,8 @@ const FooterCTA: React.FC<FooterCTAProps> = ({
                     <div>
                         <h4 className="font-semibold mb-2">Na Ndiqni</h4>
                         <div className="flex items-center gap-4 text-2xl">
-                            <a href="https://facebook.com/YourPage" target="_blank" rel="noopener noreferrer" className="hover:text-[#FEFE98]"><FaFacebookF /></a>
-                            <a href="https://instagram.com/YourPage" target="_blank" rel="noopener noreferrer" className="hover:text-[#FEFE98]"><FaInstagram /></a>
-                            <a href="https://tiktok.com/@YourPage" target="_blank" rel="noopener noreferrer" className="hover:text-[#FEFE98]"><FaTiktok /></a>
+                            <a href="https://www.facebook.com/p/Dardanica-Clinic-61575301026935/" target="_blank" rel="noopener noreferrer" className="hover:text-[#FEFE98]"><FaFacebookF /></a>
+                            <a href="https://www.instagram.com/dardanica.clinic/" target="_blank" rel="noopener noreferrer" className="hover:text-[#FEFE98]"><FaInstagram /></a>
                         </div>
                     </div>
                 </div>
@@ -135,7 +134,7 @@ const FooterCTA: React.FC<FooterCTAProps> = ({
                     © 2025 Dardanica Clinic | Të gjitha të drejtat e rezervuara |
                     <Link to="/privacy" className="hover:underline"> Politika e Privatësisë</Link> |
                     <Link to="/terms" className="hover:underline"> Kushtet e Përdorimit</Link> |
-                    <Link to="/terms" className="hover:underline"> Powered by GM</Link>
+                    <Link to="/" className="hover:underline"> Powered by GM</Link>
                 </div>
             </footer>
         </>

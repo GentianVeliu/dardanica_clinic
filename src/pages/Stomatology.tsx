@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Star, ChevronRight, Shield, Award, Users, CheckCircle, Zap } from 'lucide-react';
+import { ChevronRight, Shield, Award, Users, CheckCircle, Zap } from 'lucide-react';
 
 // Local asset imports
 import dentClinic1 from '../assets/dent-clinic-1.jpg';
@@ -9,7 +9,6 @@ import dentClinic3 from '../assets/dent-clinic-3.jpg';
 import dentClinic4 from '../assets/dent-clinic-4.jpg';
 import dentImg1 from '../assets/dent-img-1.jpg';
 import dentImg2 from '../assets/dent-img-2.jpg';
-import dentProfile from '../assets/dent-profile.jpg';
 import FooterCTA from '../components/FooterCta';
 
 const procedures = [
@@ -21,7 +20,6 @@ const procedures = [
     { title: 'Implant Dentar', img: dentImg2, desc: 'Implantime të sigurta dhe të qëndrueshme me garanci.' },
 ];
 
-const team = [{ name: 'Dr. Spec. Shkurte Demolli-Veliu', role: 'Specialiste e kirurgjisë orale', img: dentProfile, experience: '10+ vjet përvojë', education: 'Universiteti i Prishtinës' }];
 
 const faq = [
     { q: 'Sa kohë zgjat një seancë pastrimi?', a: 'Një seancë pastrimi profesional zgjat rreth 30–45 minuta, varësisht nga gjendja e dhëmbëve tuaj.' },
@@ -71,19 +69,35 @@ const Stomatologji: React.FC = () => {
                         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                             <Link
                                 to="https://wa.me/38345448822"
-                                className="group inline-flex items-center bg-gradient-to-r from-[#FEFE98] to-[#D3A54B] 
-                                         text-[#0B2944] px-8 py-4 rounded-full font-bold text-lg
-                                         hover:scale-105 hover:shadow-2xl transition-all duration-300
-                                         shadow-lg hover:shadow-[#FEFE98]/25"
+                                className="
+                                group inline-flex items-center justify-center
+                                bg-gradient-to-r from-[#FEFE98] to-[#D3A54B]
+                                text-[#0B2944] font-bold text-lg
+                                px-8 py-3 sm:py-4 rounded-full
+                                 shadow-lg hover:shadow-2xl hover:scale-105
+                                transition-all duration-300
+
+                                /* match widths */
+                                 w-full sm:w-auto min-w-[200px]
+                             "
                             >
                                 Rezervo Termin
                                 <ChevronRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                             </Link>
+
                             <a
                                 href="#procedurat"
-                                className="inline-flex items-center text-white border-2 border-white/30 
-                                         px-8 py-4 rounded-full font-semibold text-lg
-                                         hover:bg-white/10 hover:border-white transition-all duration-300"
+                                className="
+                                    inline-flex items-center justify-center
+                                     text-white border-2 border-white/30
+                                        font-semibold text-lg
+                                         px-8 py-3 sm:py-4 rounded-full
+                                         hover:bg-white/10 hover:border-white
+                                        transition-all duration-300
+
+                                         /* match widths */
+                                         w-full sm:w-auto min-w-[200px]
+                                        "
                             >
                                 Shiko Shërbimet
                             </a>
@@ -140,14 +154,27 @@ const Stomatologji: React.FC = () => {
                                 <div className="p-6">
                                     <h3 className="text-xl font-bold mb-3 text-[#003566] group-hover:text-[#0B2944] 
                                                  transition-colors">{svc.title}</h3>
-                                    <p className="text-gray-600 mb-4 leading-relaxed">{svc.desc}</p>
-                                    <button className="w-full bg-gradient-to-r from-[#003566] to-[#0B2944] 
-                                                     text-white py-3 rounded-xl font-semibold
-                                                     hover:shadow-lg transition-all duration-300
-                                                     group-hover:from-[#FEFE98] group-hover:to-[#D3A54B] 
-                                                     group-hover:text-[#003566]">
-                                        Mëso Më Shumë
-                                    </button>
+                                    <p
+                                        className="text-gray-600 mb-4 leading-relaxed h-16 overflow-hidden">
+                                        {svc.desc}
+                                    </p>                                   {/* Progress bar */}
+                                    <div className="w-full bg-gray-200 rounded-full h-1 mb-4">
+                                        <div className="bg-gradient-to-r from-[#0B2944] to-[#1e3a5f] h-1 rounded-full
+                                  transition-all duration-1000 group-hover:w-full w-1/3"
+                                        />
+                                    </div>
+
+                                    {/* Stars */}
+                                    <div className="flex items-center justify-between">
+                                        <span className="text-sm text-gray-500 font-medium">Ekspertiza Profesionale</span>
+                                        <div className="flex items-center gap-1">
+                                            {[...Array(5)].map((_, i) => (
+                                                <svg key={i} className="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                </svg>
+                                            ))}
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         ))}
@@ -203,49 +230,6 @@ const Stomatologji: React.FC = () => {
                 </div>
             </section>
 
-            {/* Team Section - Enhanced */}
-            <section className="py-20 bg-white">
-                <div className="container mx-auto px-4 sm:px-8 lg:px-24">
-                    <div className="text-center mb-16">
-                        <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-[#003566]">
-                            Takoni Stafin Tonë të Specializuar
-                        </h2>
-                        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                            Ekipi ynë i përbërë nga profesionistë të kualifikuar është gati t'ju ofrojë
-                            kujdesin më të mirë
-                        </p>
-                    </div>
-
-                    <div className="flex justify-center">
-                        {team.map((member) => (
-                            <div key={member.name}
-                                className="bg-gradient-to-br from-white to-gray-50 p-8 rounded-3xl 
-                                          shadow-xl hover:shadow-2xl transition-all duration-500 
-                                          w-full max-w-lg border border-gray-100 group
-                                          hover:-translate-y-2">
-                                <div className="text-center">
-                                    <div className="relative inline-block mb-6">
-                                        <img
-                                            src={member.img}
-                                            alt={member.name}
-                                            className="w-32 h-32 rounded-full object-cover shadow-lg 
-                                                     group-hover:scale-105 transition-transform duration-300"
-                                        />
-                                        <div className="absolute -bottom-2 -right-2 bg-[#003566] text-white 
-                                                      p-2 rounded-full shadow-lg">
-                                            <Star className="w-4 h-4" />
-                                        </div>
-                                    </div>
-                                    <h3 className="text-2xl font-bold text-[#003566] mb-2">{member.name}</h3>
-                                    <p className="text-[#D3A54B] font-semibold mb-2">{member.role}</p>
-                                    <p className="text-gray-600 mb-1">{member.experience}</p>
-                                    <p className="text-gray-500 text-sm">{member.education}</p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
 
             {/* FAQ Section - Interactive */}
             <section className="py-20 bg-gray-50">

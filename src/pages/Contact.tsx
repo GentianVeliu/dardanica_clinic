@@ -116,11 +116,11 @@ const Contact: React.FC = () => {
                         <iframe
                             title="Dardanica Clinic Location"
                             src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d341.53933928023065!2d21.169297579206358!3d42.643341281928386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2s!4v1750232672480!5m2!1sen!2s"
-                            className="w-full h-80 sm:h-96 lg:h-[500px] border-0"
+                            className="w-full h-[500px] sm:h-96 lg:h-[500px] border-0"
                             allowFullScreen
                             loading="lazy"
                         />
-                        <div className="absolute top-6 left-6 bg-white bg-opacity-90 backdrop-blur-sm p-5 rounded-2xl shadow-lg max-w-xs">
+                        <div className="absolute top-10 lg:top-10 left-2  bg-white bg-opacity-90 backdrop-blur-sm p-5 rounded-2xl shadow-lg max-w-xs">
                             <div className="flex items-center mb-2">
                                 <span className="text-2xl text-[#FEFE98] mr-3">📍</span>
                                 <h4 className="text-xl font-semibold text-[#0B2944]">Dardanica Clinic</h4>

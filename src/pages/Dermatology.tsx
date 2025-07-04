@@ -10,48 +10,67 @@ import dermaImg2 from '../assets/derma-img-2.jpg';
 import dermaImg3 from '../assets/derma-img-3.jpg';
 import FooterCTA from '../components/FooterCta';
 
-const treatments = [
+import filler1 from '../assets/filler-clinic-1.jpg';
+import filler2 from '../assets/filler-clinic-2.jpg';
+import filler3 from '../assets/filler-clinic-3.jpg';
+
+interface Treatment {
+    img: string;
+    title: string;
+    desc: string;
+    duration: string;
+    sessions: string;
+    slug: string;
+}
+
+const treatments: Treatment[] = [
     {
-        title: 'Trajtimi i Akneve',
-        img: 'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&h=400&fit=crop',
-        desc: 'Çrrënjosje e akneve dhe pastrim i thellë i lëkurës me teknologji të avancuara.',
-        duration: '45-60 min',
-        sessions: '3-4 seanca'
+        img: dermaImg3,
+        title: 'Dermatologji Klinike',
+        desc: 'Diagnostikë dhe trajtime të avancuara dermatologjike.',
+        duration: '60 min',
+        sessions: '1 seancë',
+        slug: '/dermatologji'
     },
     {
-        title: 'Peeling Kimik',
-        img: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&h=400&fit=crop',
-        desc: 'Rinovim estetik me substrate kimike për lëkurë të shkëlqyer dhe të rinovuar.',
-        duration: '30-45 min',
-        sessions: '2-3 seanca'
+        img: dermaImg2,
+        title: 'Estetika Lëkure',
+        desc: 'Peeling, mikropigmentim dhe rinovim lëkure.',
+        duration: '45 min',
+        sessions: '3 seanca',
+        slug: '/estetika'
     },
     {
-        title: 'Laser Erbium',
-        img: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&h=400&fit=crop',
-        desc: 'Trajtim laser për njolla, shenja dhe rrudha të lehta me rezultate të dukshme.',
-        duration: '60-90 min',
-        sessions: '1-2 seanca'
+        img: dermaImg1,
+        title: 'Laser Terapi',
+        desc: 'Trajtim me laser për njolla dhe skuqje.',
+        duration: '30 min',
+        sessions: '5 seanca',
+        slug: '/dermatologji'
     },
     {
-        title: 'Microdermabrasion',
-        img: 'https://images.unsplash.com/photo-1596178065887-1198b6148b2b?w=600&h=400&fit=crop',
-        desc: 'Eksfolim i butë për rigjenerim natyral të lëkurës dhe teksturë të përmirësuar.',
-        duration: '30-45 min',
-        sessions: '4-6 seanca'
+        img: filler1,
+        title: 'Filler Hyaluronic',
+        desc: 'Rinovim volumetrik me filler të pastër.',
+        duration: '30 min',
+        sessions: '1 seancë',
+        slug: '/estetika'
     },
     {
-        title: 'Injeksione Kolagjeni',
-        img: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&h=400&fit=crop',
-        desc: 'Rikthim i elasticitetit dhe volumit me injeksione të sigurt dhe të aprovuara.',
-        duration: '15-30 min',
-        sessions: '1-2 seanca'
+        img: filler2,
+        title: 'Botox & Muskuj',
+        desc: 'Relaksim muskujsh për rrudha të shpejta.',
+        duration: '20 min',
+        sessions: '1 seancë',
+        slug: '/estetika'
     },
     {
-        title: 'Elektroporacion',
-        img: 'https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=600&h=400&fit=crop',
-        desc: 'Përthithje maksimale e serumëve me teknologji të avancuar elektroporacion.',
-        duration: '45-60 min',
-        sessions: '3-5 seanca'
+        img: filler3,
+        title: 'Mikrofluidë Plasma',
+        desc: 'Trajtim PRP për rinovim natyral.',
+        duration: '50 min',
+        sessions: '2 seanca',
+        slug: '/estetika'
     },
 ];
 
@@ -100,6 +119,7 @@ const galleryImages = [
     dermaImg3,
 ];
 
+
 const Dermatologji: React.FC = () => {
     const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
 
@@ -110,15 +130,14 @@ const Dermatologji: React.FC = () => {
     return (
         <>
             {/* Hero Section */}
-            <section className="relative bg-gradient-to-br from-[#0B2944] via-[#1e3a5f] to-[#0B2944] text-white py-24 overflow-hidden">
-                <div className="absolute inset-0 bg-black/20"></div>
+            <section className="relative bg-gradient-to-br from-[#0B2944] via-[#1e3a5f] to-[#0B2944] text-white py-24 overflow-hidden px-4 sm:px-8">                <div className="absolute inset-0 bg-black/20"></div>
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0B2944]/50 to-transparent"></div>
 
                 {/* Animated background elements */}
                 <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-[#FEFE98]/10 to-[#D3A54B]/10 rounded-full blur-xl animate-pulse"></div>
                 <div className="absolute bottom-20 right-10 w-24 h-24 bg-gradient-to-br from-[#D3A54B]/10 to-[#FEFE98]/10 rounded-full blur-xl animate-pulse delay-1000"></div>
 
-                <div className="container mx-auto px-4 sm:px-8 lg:px-24 relative z-10">
+                <div className="container mx-auto relative z-10">
                     <div className="flex flex-col lg:flex-row items-center gap-12">
                         <div className="lg:w-1/2 text-center lg:text-left">
                             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent leading-tight">
@@ -131,12 +150,29 @@ const Dermatologji: React.FC = () => {
                                 Trajtimet më të fundit për lëkurë të shëndetshme dhe rinovim estetik me ekspertizë botërore dhe teknologji të avancuar.
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                                <Link to="https://wa.me/38345448822" target="_blank" className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-lg font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-11 px-8 bg-gradient-to-r from-[#FEFE98] to-[#D3A54B] text-[#0B2944] hover:shadow-2xl hover:scale-105 transition-all duration-300">
+                                <Link
+                                    to="https://wa.me/38345448822"
+                                    target="_blank"
+                                    className="
+      inline-flex items-center justify-center gap-2 whitespace-nowrap
+      bg-gradient-to-r from-[#FEFE98] to-[#D3A54B] text-[#0B2944]
+      font-medium text-lg
+      px-8 py-3 sm:py-4 rounded-full
+      hover:shadow-2xl hover:scale-105 transition-all duration-300
+
+      /* responsive width */
+      w-full sm:w-auto min-w-[200px]
+      
+      /* focus styles */
+      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2
+      disabled:pointer-events-none disabled:opacity-50
+    "
+                                >
                                     Rezervo Konsultë
                                 </Link>
                             </div>
                         </div>
-                        <div className="lg:w-1/2">
+                        <div className="hidden lg:block lg:w-1/2">
                             <div className="relative">
                                 <div className="absolute -inset-4 bg-gradient-to-r from-[#FEFE98]/20 to-[#D3A54B]/20 rounded-3xl blur-2xl"></div>
                                 <img
@@ -168,54 +204,80 @@ const Dermatologji: React.FC = () => {
                 </div>
             </section>
 
-            {/* Treatments Section */}
-            <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
-                <div className="container mx-auto px-4 sm:px-8 lg:px-24">
-                    <div className="text-center mb-16">
-                        <h2 className="text-4xl sm:text-5xl font-bold text-[#0B2944] mb-6">
-                            Trajtimet Tona Profesionale
+            <section className="py-24 bg-gradient-to-b from-gray-50 via-white to-gray-50 relative overflow-hidden">
+                {/* Pattern background */}
+                <div
+                    className="absolute inset-0 opacity-30"
+                // style={{
+                //     backgroundImage: `url("data:image/svg+xml,${dotPatternSvg}")`,
+                // }}
+                />
+
+                <div className="container mx-auto px-4 sm:px-8 lg:px-24 relative z-10">
+                    {/* Header */}
+                    <div className="text-center mb-20">
+                        <div className="inline-block p-2 bg-[#0B2944]/10 rounded-full mb-6">
+                            <div className="w-16 h-16 bg-gradient-to-br from-[#0B2944] to-[#1e3a5f] rounded-full flex items-center justify-center">
+                                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth={2}
+                                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                                    />
+                                </svg>
+                            </div>
+                        </div>
+                        <h2 className="text-5xl sm:text-6xl font-bold text-[#0B2944] mb-8 leading-tight">
+                            Trajtimet Tona
+                            <span className="block text-3xl sm:text-4xl font-light text-gray-600 mt-2">Profesionale</span>
                         </h2>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                            Ofrojmë një gamë të plotë trajtimesh dermatologjike duke përdorur teknologjitë më të fundit dhe teknikat më efikase.
+                        <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+                            Ofrojmë një gamë të plotë trajtimesh dermatologjike duke përdorur teknologjitë më të fundit dhe teknikat më efikase për rezultate të shkëlqyera.
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                        {treatments.map((treatment) => (
-                            <div key={treatment.title} className="group hover:shadow-2xl transition-all duration-300 shadow-lg overflow-hidden rounded-lg border bg-white text-gray-900">
-                                <div className="relative">
+                    {/* Treatments grid */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4 sm:px-6 lg:px-12">
+                        {treatments.map((t) => (
+                            <div
+                                key={t.title}
+                                className="flex flex-col bg-white rounded-2xl shadow-md hover:shadow-lg transition p-6"
+                            >
+                                <div className="h-48 w-full overflow-hidden rounded-xl mb-4">
                                     <img
-                                        src={treatment.img}
-                                        alt={treatment.title}
-                                        className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
+                                        src={t.img}
+                                        alt={t.title}
+                                        className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                                 </div>
-                                <div className="flex flex-col space-y-1.5 p-6 pb-4">
-                                    <h3 className="text-2xl font-semibold leading-none tracking-tight text-[#0B2944] group-hover:text-[#1e3a5f] transition-colors">
-                                        {treatment.title}
-                                    </h3>
-                                    <div className="flex gap-4 text-sm text-gray-500">
-                                        <span>⏱️ {treatment.duration}</span>
-                                        <span>📅 {treatment.sessions}</span>
-                                    </div>
+                                <h3 className="text-xl font-semibold text-[#0B2944] mb-2">{t.title}</h3>
+                                <p className="text-gray-600 text-sm flex-grow mb-4">{t.desc}</p>
+                                <div className="flex items-center text-sm text-gray-500 mb-4 space-x-4">
+                                    <span className="bg-gray-100 px-3 py-1 rounded-full">{t.duration}</span>
+                                    <span className="bg-gray-100 px-3 py-1 rounded-full">{t.sessions}</span>
                                 </div>
-                                <div className="p-6 pt-0">
-                                    <p className="text-gray-700 text-base leading-relaxed mb-4">
-                                        {treatment.desc}
-                                    </p>
-                                    <Link to="/kontakt" className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 border border-input bg-background hover:bg-accent hover:text-accent-foreground group-hover:bg-[#0B2944] group-hover:text-white transition-all duration-300">
-                                        Më Shumë Info
-                                    </Link>
-                                </div>
+                                <Link
+                                    to={t.slug}
+                                    className="mt-4 inline-block 
+                                    bg-gradient-to-r from-[#FEFE98] to-[#D3A54B] 
+                                    text-[#0B2944] font-semibold 
+                                    px-5 py-2 rounded-full 
+                                    shadow hover:scale-105 
+                                    transition-transform duration-300 text-center"
+                                >
+                                    Rezervo Tani
+                                </Link>
                             </div>
                         ))}
                     </div>
+
+
                 </div>
             </section>
 
             {/* Skin Care Tips Section */}
-            <section className="py-20 bg-gradient-to-br from-[#0B2944] to-[#1e3a5f] text-white relative overflow-hidden">
+            < section className="py-20 bg-gradient-to-br from-[#0B2944] to-[#1e3a5f] text-white relative overflow-hidden" >
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-900/20 to-amber-900/20"></div>
                 <div className="container mx-auto px-4 sm:px-8 lg:px-24 relative z-10">
                     <div className="text-center mb-16">
@@ -249,10 +311,10 @@ const Dermatologji: React.FC = () => {
                         ))}
                     </div>
                 </div>
-            </section>
+            </section >
 
             {/* FAQ Section */}
-            <section className="py-20 bg-white">
+            < section className="py-20 bg-white" >
                 <div className="container mx-auto px-4 sm:px-8 lg:px-24 max-w-4xl">
                     <div className="text-center mb-16">
                         <h2 className="text-4xl sm:text-5xl font-bold text-[#0B2944] mb-6">
@@ -292,10 +354,10 @@ const Dermatologji: React.FC = () => {
                         ))}
                     </div>
                 </div>
-            </section>
+            </section >
 
             {/* Gallery Section */}
-            <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+            < section className="py-20 bg-gradient-to-b from-gray-50 to-white" >
                 <div className="container mx-auto px-4 sm:px-8 lg:px-24">
                     <div className="text-center mb-16">
                         <h2 className="text-4xl sm:text-5xl font-bold text-[#0B2944] mb-6">
@@ -319,7 +381,7 @@ const Dermatologji: React.FC = () => {
                         ))}
                     </div>
                 </div>
-            </section>
+            </section >
 
 
             <FooterCTA

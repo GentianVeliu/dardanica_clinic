@@ -27,12 +27,6 @@ const treatments = [
     { name: 'Fillers faqe', desc: 'Rikthim i konturave rinore.' },
 ];
 
-const specialists = [
-    { name: 'Dr. Anna Berisha', title: 'Eksperte Estetike', img: fillerImg1 },
-    { name: 'Dr. Marko Selmani', title: 'Specialist Fillers', img: fillerImg2 },
-];
-
-
 const faq = [
     { q: 'Sa zgjat efekti i botoksit?', a: 'Rreth 4–6 muaj, varësisht nga metabolizmi.' },
     { q: 'A dua pushim pas trajtimit?', a: 'Jo; mund të vazhdoni aktivitetet normale.' },
@@ -69,8 +63,16 @@ const Estetika: React.FC = () => {
                     </p>
                     <Link
                         to="https://wa.me/38345448822"
-                        target='_blank'
-                        className="inline-block bg-[#0B2944] text-white px-8 py-3 rounded-full font-medium hover:opacity-90 transition"
+                        target="_blank"
+                        className="
+    inline-flex items-center justify-center
+    bg-[#0B2944] text-white font-medium text-lg
+    px-8 py-3 sm:py-4 rounded-full
+    hover:opacity-90 transition-opacity duration-300
+
+    /* match widths */
+    w-full sm:w-auto min-w-[200px]
+  "
                     >
                         Rezervo Konsultë
                     </Link>
@@ -152,43 +154,29 @@ const Estetika: React.FC = () => {
                 </div>
             </section>
 
-            {/* Specialists */}
-            <section className="py-16 bg-white">
-                <div className="container mx-auto px-4 text-center">
-                    <h2 className="text-3xl font-semibold mb-10 text-[#0B2944]">
-                        Takoni Specialistët
-                    </h2>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                        {specialists.map((s) => (
-                            <div key={s.name} className="bg-gray-50 p-6 rounded-2xl shadow hover:shadow-lg transition">
-                                <img
-                                    src={s.img}
-                                    alt={s.name}
-                                    className="w-32 h-32 mx-auto rounded-full mb-4 object-cover"
-                                />
-                                <h3 className="text-xl font-semibold mb-1">{s.name}</h3>
-                                <p className="text-gray-600">{s.title}</p>
-                            </div>
-                        ))}
+
+            {/* Gallery Estetike */}
+            <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+                <div className="container mx-auto px-4 sm:px-8 lg:px-24">
+                    <div className="text-center mb-16">
+                        <h2 className="text-4xl sm:text-5xl font-bold text-[#0B2944] mb-6">
+                            Galeria Estetike
+                        </h2>
+                        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                            Zbuloni ambientet dhe pajisjet tona moderne për trajtimet estetike.
+                        </p>
                     </div>
-                </div>
-            </section>
 
-
-            {/* Gallery */}
-            <section className="py-16 bg-gray-100">
-                <div className="container mx-auto px-4 text-center">
-                    <h2 className="text-3xl font-semibold mb-10 text-[#0B2944]">
-                        Galeria Estetike
-                    </h2>
-                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
                         {gallery.map((src, i) => (
-                            <img
-                                key={i}
-                                src={src}
-                                alt={`Estetika ${i + 1}`}
-                                className="w-full h-32 object-cover rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
-                            />
+                            <div key={i} className="group relative overflow-hidden rounded-xl">
+                                <img
+                                    src={src}
+                                    alt={`Estetika ${i + 1}`}
+                                    className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                            </div>
                         ))}
                     </div>
                 </div>
