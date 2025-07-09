@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Star, ChevronLeft, ChevronRight, X } from 'lucide-react';
 
@@ -10,26 +10,24 @@ import dentImg5 from '../assets/dent-img-5.jpg';
 import dentProfile from '../assets/dent-profile.jpg';
 import dermaProfile from '../assets/derma-profile.jpg';
 
-import dermaClinic1 from '../assets/derma-clinic-1.jpg';
-import dermaClinic2 from '../assets/derma-clinic-2.jpg';
-import fillerClinic1 from '../assets/filler-clinic-1.jpg';
-import fillerClinic2 from '../assets/filler-clinic-2.jpg';
-
-// Gallery images
 import clinic1 from '../assets/clinic-1.jpg';
-import clinic2 from '../assets/clinic-2.jpg';
-import clinic3 from '../assets/clinic-3.jpg';
-import clinic4 from '../assets/clinic-4.jpg';
-import clinic5 from '../assets/clinic-5.jpg';
-import clinicOutside1 from '../assets/clinic-outside-1.jpg';
-import clinicOutside2 from '../assets/clinic-outside-2.jpg';
-import clinicOutside3 from '../assets/clinic-outside-3.jpg';
 import FooterCTA from '../components/FooterCta';
 
-const galleryImages = [clinic1, clinic2, clinic3, clinic4, clinic5, clinicOutside1, clinicOutside2, clinicOutside3, dermaClinic1, dermaClinic2, fillerClinic1, fillerClinic2];
+
+const modules = import.meta.glob('../assets/home/*.jpg', { eager: true }) as Record<
+    string,
+    { default: string }
+>;
 
 
-// Define a type for team members
+const galleryImages = Object.keys(modules)
+    .sort((a, b) => {
+        const na = Number(a.match(/\/(\d+)\.jpg$/)![1]);
+        const nb = Number(b.match(/\/(\d+)\.jpg$/)![1]);
+        return na - nb;
+    })
+    .map((path) => modules[path].default);
+
 interface TeamMember {
     name: string;
     role: string;
@@ -119,6 +117,19 @@ const Home: React.FC = () => {
     const openModal = (member: any) => setSelectedMember(member);
     const closeModal = () => setSelectedMember(null);
 
+    const initialCount = 8;
+    const [visibleCount, setVisibleCount] = useState(initialCount);
+    const galleryRef = useRef<HTMLDivElement>(null);
+
+    const toggleGallery = () => {
+        if (visibleCount < galleryImages.length) {
+            setVisibleCount(galleryImages.length);
+        } else {
+            setVisibleCount(initialCount);
+            galleryRef.current?.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     return (
         <>
             {/* Hero Section */}
@@ -202,19 +213,31 @@ const Home: React.FC = () => {
             <section className="py-20 bg-white">
                 <div className="container mx-auto px-4 sm:px-8 lg:px-24">
                     <div className="text-center mb-16">
-                        <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-[#003566]">Takoni Stafin Tonë të Specializuar</h2>
-                        <p className="text-xl text-gray-600 max-w-2xl mx-auto">Ekipi ynë i përbërë nga profesionistë të kualifikuar është gati t'ju ofrojë kujdesin më të mirë</p>
+                        <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-[#003566]">
+                            Takoni Stafin Tonë të Specializuar
+                        </h2>
+                        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                            Ekipi ynë i përbërë nga profesionistë të kualifikuar është gati t'ju ofrojë kujdesin më të mirë
+                        </p>
                     </div>
                     <div className="flex flex-wrap justify-center gap-8">
                         {team.map(member => (
                             <div
                                 key={member.name}
                                 onClick={() => openModal(member)}
-                                className="cursor-pointer bg-gradient-to-br from-white to-gray-50 p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 w-full sm:w-80 max-w-lg border border-gray-100 group hover:-translate-y-2"
+                                className="cursor-pointer bg-gradient-to-br from-white to-gray-50 p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 w-full sm:w-80 md:w-96 max-w-lg border border-gray-100 group hover:-translate-y-2"
                             >
                                 <div className="text-center">
                                     <div className="relative inline-block mb-6">
-                                        <img src={member.img} alt={member.name} className="w-32 h-32 rounded-full object-cover shadow-lg group-hover:scale-105 transition-transform duration-300" />
+                                        {/* Kutia e fotos me hapësirë fikse dhe me overflow-hidden */}
+                                        <div className="w-48 h-64 overflow-hidden rounded-3xl mx-auto">
+                                            <img
+                                                src={member.img}
+                                                alt={member.name}
+                                                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                                            />
+                                        </div>
+                                        {/* Ikona në cep */}
                                         <div className="absolute -bottom-2 -right-2 bg-[#003566] text-white p-2 rounded-full shadow-lg">
                                             <Star className="w-4 h-4" />
                                         </div>
@@ -261,7 +284,7 @@ const Home: React.FC = () => {
 
 
             {/* Gallery Section */}
-            <section className="py-12 md:py-20 bg-white px-4 sm:px-8">
+            <section ref={galleryRef} className="py-12 md:py-20 bg-white px-4 sm:px-8">
                 <div className="container mx-auto text-center">
                     <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#003566] mb-4">
                         Dardanica Clinic
@@ -269,8 +292,9 @@ const Home: React.FC = () => {
                     <p className="text-sm sm:text-base text-[#003566] mb-6">
                         Shikoni hapësirat tona moderne dhe të pajisura me teknologji të avancuar
                     </p>
+
                     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-                        {galleryImages.map((src, idx) => (
+                        {galleryImages.slice(0, visibleCount).map((src, idx) => (
                             <div
                                 key={idx}
                                 className="overflow-hidden rounded-lg shadow-lg cursor-pointer"
@@ -284,6 +308,17 @@ const Home: React.FC = () => {
                             </div>
                         ))}
                     </div>
+
+                    {/* 3) Butoni toggle me type="button" */}
+                    <button
+                        type="button"
+                        onClick={toggleGallery}
+                        className="mt-6 px-6 py-3 bg-[#003566] text-white rounded-full hover:bg-[#002244] transition"
+                    >
+                        {visibleCount < galleryImages.length
+                            ? 'Shiko më shumë foto'
+                            : 'Shiko më pak foto'}
+                    </button>
                 </div>
             </section>
 
@@ -375,7 +410,7 @@ const Home: React.FC = () => {
                                 <img
                                     src={selectedMember.img}
                                     alt={selectedMember.name}
-                                    className="w-40 h-40 rounded-full object-cover shadow-lg"
+                                    className="w-40 h-64 rounded-3xl object-cover shadow-lg"
                                 />
                                 <h3 className="text-3xl font-extrabold text-[#003566]">
                                     {selectedMember.name}
