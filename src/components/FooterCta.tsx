@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Phone, MapPin, Mail } from 'lucide-react';
-import { FaFacebookF, FaInstagram } from 'react-icons/fa';
+import { FaFacebookF, FaInstagram, FaTiktok } from 'react-icons/fa';
 
 interface WorkingHour {
     day: string;
@@ -127,6 +127,7 @@ const FooterCTA: React.FC<FooterCTAProps> = ({
                         <div className="flex items-center gap-4 text-2xl">
                             <a href="https://www.facebook.com/p/Dardanica-Clinic-61575301026935/" target="_blank" rel="noopener noreferrer" className="hover:text-[#FEFE98]"><FaFacebookF /></a>
                             <a href="https://www.instagram.com/dardanica.clinic/" target="_blank" rel="noopener noreferrer" className="hover:text-[#FEFE98]"><FaInstagram /></a>
+                            <a href="https://www.tiktok.com/@dardanicaclinic?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" className="hover:text-[#FEFE98]"><FaTiktok /></a>
                         </div>
                     </div>
                 </div>

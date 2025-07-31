@@ -11,44 +11,88 @@ import fillerImg2 from '../assets/filler-img-2.jpg';
 import fillerImg3 from '../assets/filler-img-3.jpg';
 import fillerImg4 from '../assets/filler-img-4.jpg';
 import FooterCTA from '../components/FooterCta';
-import { Star, Award, Shield, Heart, ChevronDown, ChevronUp } from 'lucide-react';
+import { Star, Award, Shield, Heart, ChevronRight } from 'lucide-react';
+import logoDC from '../assets/logo-dc-shadow.png';
+import estetik1 from '../assets/estetik1.jpg';
+import estetik2 from '../assets/estetik2.jpg';
+import estetik4 from '../assets/estetik4.jpg';
 
 const benefits = [
-    { title: 'Rinovim Natyral', desc: 'Trajtim me botoks për mimikë natyrale.' },
-    { title: 'Volumizim Preciz', desc: 'Fillers për buzë, faqe dhe konture.' },
-    { title: 'Rezultate të Shpejta', desc: 'Efekt i menjëhershëm pas trajtimit.' },
-    { title: 'Pa Dhimbje', desc: 'Anestezi lokale për rehati maksimale.' },
+    {
+        title: 'Tretman Anti-rrudhë',
+        desc: 'Tretman anti-rrudhë për pamje rinore dhe natyrale.'
+    },
+    {
+        title: 'Filler Dermal',
+        desc: 'Volumizim, konturim, korrigjim i asimetrive dhe balancim profili.'
+    },
+    {
+        title: 'Microneedling (Fytyrë, Qafë, Dekolte, Flokë)',
+        desc: 'Microneedling + PRP, Microneedling + Exosome PDRN, Microneedling + mezoterapi (PRP, acid hialuronik, koktej vitaminash).'
+    },
+    {
+        title: 'Double Tite (RF Microneedling + Injection)',
+        desc: 'Shtrëngim dhe tonifikim i lëkurës, rritje të prodhimit të kolagjenit, përmirësim i strukturës së lëkurës.'
+    },
+    {
+        title: 'Skin Booster (Mezoterapi)',
+        desc: 'Profhilo, Karisma RH Collagen, Nucleofill Strong, Nucleofill Eyes, Croma Revitalis, Rejuran.'
+    },
+    {
+        title: 'Peeling (PQ Age Evolution, PRX-T33)',
+        desc: 'Ndriçim i lëkurës, përmirësim i strukturës, zhdukje e njollave/hiperpigmentimeve, reduktim i poreve, rrudhave të imëta dhe akneve.'
+    },
+    {
+        title: 'Lipolizë (Aqualyx fytyrë, Aqualyx trup)',
+        desc: 'Eliminim i mjekrës së dyfishtë dhe i dhjamit në zona të ndryshme të trupit.'
+    },
+    {
+        title: 'Trajtimet e lëkurës',
+        desc: 'Hydrofacial, Diamond Dermabrazion, Radiofrekuencë, LED Light Therapy, Oxygen Therapy, maskë kolagjeni, pastrim i thellë i fytyrës.'
+    },
 ];
 
-const treatments = [
-    { name: 'Botoks në ballë', desc: 'Reduktim i rrudhave horizontale.' },
-    { name: 'Botoks pranë syve', desc: 'Zbutje e linjave të qeshjes.' },
-    { name: 'Fillers buzë', desc: 'Volumizim kundër buzësh të hollë.' },
-    { name: 'Fillers faqe', desc: 'Rikthim i konturave rinore.' },
-];
 
 const faq = [
-    { q: 'Sa zgjat efekti i botoksit?', a: 'Rreth 4–6 muaj, varësisht nga metabolizmi.' },
-    { q: 'A dua pushim pas trajtimit?', a: 'Jo; mund të vazhdoni aktivitetet normale.' },
-    { q: 'A janë fillers të përhershëm?', a: 'Jo; rekomandohen rigjenerime çdo 6–12 muaj.' },
+    {
+        q: 'Sa zgjat efekti i botoksit?',
+        a: 'Rreth 4–6 muaj, varësisht nga metabolizmi.'
+    },
+    {
+        q: 'A janë fillers të përhershëm?',
+        a: 'Jo; rekomandohen rigjenerime çdo 6–12 muaj.'
+    },
+    {
+        q: 'Në cilat zona aplikohet tretmani anti-rrudhë?',
+        a: 'Balli, ndërmjet vetullave (glabella), rreth syve (“crow’s feet”), hunda, lartësimi i vetullave, rreth buzës dhe mjekra.'
+    },
+    {
+        q: 'Çfarë është Filleri Dermal?',
+        a: 'Acid hialuronik i injektuar për të shtuar volum, konturim dhe korrigjim të asimet rive.'
+    },
+    {
+        q: 'Sa seanca Double Tite rekomandohen?',
+        a: 'Zakonisht 2–3 seanca, të ndara nga 4–6 javë për rezultate afatgjata.'
+    },
+    {
+        q: 'Çfarë është Hydrofacial dhe sa shpesh bëhet?',
+        a: 'Trajtim hidratuese/pastrues me sistem të avancuar; rekomandohet 1–2 herë në muaj për lëkurë me shkëlqim.'
+    },
 ];
-
 const stats = [
     { number: '10+', label: 'Vite Përvojë', icon: Award },
-    { number: '500+', label: 'Pacientë të Kënaqur', icon: Heart },
+    { number: '1000+', label: 'Pacientë të Kënaqur', icon: Heart },
     { number: '100%', label: 'Shkalla e Suksesit', icon: Star },
     { number: '100%', label: 'Mbështetje', icon: Shield },
 ];
 
 
-const showcaseImgs = [fillerImg1, fillerImg2, fillerImg3, fillerImg4];
+const showcaseImgs = [estetik1, estetik2, fillerImg2, estetik4];
 const gallery = [fillerClinic1, fillerClinic2, fillerClinic3, fillerImg1, fillerImg2, fillerImg3, fillerImg4];
 
 const Estetika: React.FC = () => {
     const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
-    const toggleFaq = (i: number) => {
-        setExpandedFaq(expandedFaq === i ? null : i);
-    };
+
 
     return (
         <>
@@ -56,10 +100,10 @@ const Estetika: React.FC = () => {
             <section className="bg-gradient-to-r from-[#FEFE98] to-[#D3A54B] text-[#0B2944] py-20">
                 <div className="container mx-auto px-4 text-center">
                     <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4">
-                        Estetika në <span className="underline decoration-[#0B2944]/50">Dardanica Clinic</span>
+                        Mjekësia Estetike në  <span className="underline decoration-[#0B2944]/50">Dardanica Clinic</span>
                     </h1>
                     <p className="text-lg sm:text-xl max-w-2xl mx-auto mb-6">
-                        Ekspertizë profesionale në trajtime estetike me rezultate të qëndrueshme.
+                        Trajtime estetike profesionale me rezultate natyrale.
                     </p>
                     <Link
                         to="https://wa.me/38345448822"
@@ -80,16 +124,37 @@ const Estetika: React.FC = () => {
             </section>
 
             {/* Benefits */}
-            <section className="py-16 bg-gray-50">
-                <div className="container mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                    {benefits.map((b) => (
-                        <div key={b.title} className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition">
-                            <h3 className="text-xl font-semibold mb-2">{b.title}</h3>
-                            <p className="text-gray-700">{b.desc}</p>
-                        </div>
-                    ))}
+            <section className="py-16 bg-gradient-to-br from-gray-100 to-white">
+                <div className="container mx-auto px-8">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                        {benefits.map((b) => (
+                            <div
+                                key={b.title}
+                                className="group bg-white p-8 rounded-3xl shadow-md hover:shadow-xl 
+                     transform hover:-translate-y-2 transition-all duration-300"
+                            >
+                                {/* Logo */}
+                                <div className="w-12 h-12 mb-4 mx-auto">
+                                    <img
+                                        src={logoDC}
+                                        alt="Dardanica Clinic Logo"
+                                        className="w-full h-full object-contain"
+                                    />
+                                </div>
+
+                                <h3 className="text-xl font-semibold text-[#0B2944] mb-2 text-center">
+                                    {b.title}
+                                </h3>
+                                <p className="text-gray-600 leading-relaxed text-sm text-center">
+                                    {b.desc}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </section>
+
+
 
             {/* Stats Section */}
             <section className="py-16 bg-white relative overflow-hidden">
@@ -123,34 +188,12 @@ const Estetika: React.FC = () => {
                                     alt={`Trajtimi ${i + 1}`}
                                     className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                                 />
-                                <div className="absolute inset-0 bg-black bg-opacity-25 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                    <p className="text-white font-semibold text-lg">{treatments[i]?.name}</p>
+                                <div className="absolute inset-0 bg-black/10 bg-opacity-10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+
                                 </div>
                             </div>
                         ))}
                     </div>
-                </div>
-            </section>
-
-
-
-            {/* Treatments List */}
-            <section className="py-16 bg-gray-50">
-                <div className="container mx-auto px-4 max-w-2xl">
-                    <h2 className="text-3xl font-semibold text-center mb-8 text-[#0B2944]">
-                        Trajtimet tona
-                    </h2>
-                    <ul className="space-y-4">
-                        {treatments.map((t) => (
-                            <li key={t.name} className="flex items-start">
-                                <FaUserMd className="text-[#D3A54B] mt-1 mr-4" />
-                                <div>
-                                    <h4 className="text-lg font-semibold">{t.name}</h4>
-                                    <p className="text-gray-700">{t.desc}</p>
-                                </div>
-                            </li>
-                        ))}
-                    </ul>
                 </div>
             </section>
 
@@ -182,46 +225,43 @@ const Estetika: React.FC = () => {
                 </div>
             </section>
 
-            {/* FAQ Section */}
-            <section className="py-20 bg-white">
-                <div className="container mx-auto px-4 sm:px-8 lg:px-24 max-w-4xl">
-                    <div className="text-center mb-16">
-                        <h2 className="text-4xl sm:text-5xl font-bold text-[#0B2944] mb-6">
-                            Pyetjet e Shpeshta
-                        </h2>
-                        <p className="text-xl text-gray-600">
-                            Gjej përgjigjet për pyetjet më të zakonshme rreth trajtimeve tona.
-                        </p>
-                    </div>
+            {/* FAQ Section - Interactive */}
+            <section className="py-20 bg-gray-50">
+                <div className="container mx-auto px-4 sm:px-8 lg:px-24">
+                    <div className="max-w-4xl mx-auto">
+                        <div className="text-center mb-16">
+                            <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-[#003566]">
+                                Pyetjet e Shpeshta
+                            </h2>
+                            <p className="text-xl text-gray-600">
+                                Gjeni përgjigjet për pyetjet më të zakonshme rreth shërbimeve tona
+                            </p>
+                        </div>
 
-                    <div className="space-y-4">
-                        {faq.map((item, index) => (
-                            <div
-                                key={index}
-                                className="rounded-lg bg-white shadow-sm overflow-hidden"
-                            >
-                                <button
-                                    onClick={() => toggleFaq(index)}
-                                    className="w-full text-left p-6 hover:bg-gray-50 transition-colors duration-200"
-                                >
-                                    <div className="flex justify-between items-center">
-                                        <h3 className="text-lg font-semibold text-[#0B2944] pr-4">
-                                            {item.q}
-                                        </h3>
-                                        {expandedFaq === index ? (
-                                            <ChevronUp className="w-5 h-5 text-[#0B2944] flex-shrink-0" />
-                                        ) : (
-                                            <ChevronDown className="w-5 h-5 text-[#0B2944] flex-shrink-0" />
-                                        )}
-                                    </div>
-                                </button>
-                                {expandedFaq === index && (
-                                    <div className="px-6 pb-6 pt-0">
-                                        <p className="text-gray-700 leading-relaxed">{item.a}</p>
-                                    </div>
-                                )}
-                            </div>
-                        ))}
+                        <div className="space-y-4">
+                            {faq.map((item, idx) => (
+                                <div key={idx}
+                                    className="bg-white rounded-2xl shadow-md hover:shadow-lg 
+                                              transition-all duration-300 overflow-hidden">
+                                    <button
+                                        onClick={() => setExpandedFaq(expandedFaq === idx ? null : idx)}
+                                        className="w-full text-left p-6 flex justify-between items-center
+                                                 hover:bg-gray-50 transition-colors duration-300"
+                                    >
+                                        <h3 className="text-lg font-semibold text-[#003566] pr-4">{item.q}</h3>
+                                        <ChevronRight
+                                            className={`w-5 h-5 text-[#003566] transition-transform duration-300
+                                                      ${expandedFaq === idx ? 'rotate-90' : ''}`}
+                                        />
+                                    </button>
+                                    {expandedFaq === idx && (
+                                        <div className="px-6 pb-6 text-gray-600 leading-relaxed animate-fade-in">
+                                            {item.a}
+                                        </div>
+                                    )}
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </section>

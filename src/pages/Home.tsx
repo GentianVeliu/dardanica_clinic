@@ -102,7 +102,7 @@ const services = [
 
 // Testimonials data
 const testimonials = [
-    { text: 'Trajtimi i fillers më dha një pamje të rinovuar.', name: 'Kushtrim P.', service: 'Estetika' },
+    { text: 'That chin and jawline contouring got me looking like Dua Lipa 😍 So happy with the results!', name: 'Kathi.S', service: 'Estetika' },
     { text: 'Stafi ishte shumë profesional dhe i kujdesshëm.', name: 'Meriton V.', service: 'Stomatologji' },
     { text: 'Dermatologjia këtu është fantastike.', name: 'Rrezarta K.', service: 'Dermatologji' },
 ];

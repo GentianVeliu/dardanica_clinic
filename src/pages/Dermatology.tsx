@@ -83,7 +83,7 @@ const faq = [
 
 const stats = [
     { number: '15+', label: 'Vite Përvojë', icon: Award },
-    { number: '1000+', label: 'Pacientë të Kënaqur', icon: Heart },
+    { number: '10000+', label: 'Pacientë të Kënaqur', icon: Heart },
     { number: '100%', label: 'Shkalla e Suksesit', icon: Star },
     { number: '100%', label: 'Mbështetje', icon: Shield },
 ];
