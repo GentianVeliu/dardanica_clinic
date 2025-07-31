@@ -4,8 +4,6 @@ import { Star, ChevronLeft, ChevronRight, X } from 'lucide-react';
 
 // Hero & services images
 import stomatologyImg3 from '../assets/dent-clinic-3.jpg';
-import dermatologyImg from '../assets/derma-clinic-1.jpg';
-import fillersImg from '../assets/filler-clinic-1.jpg';
 import dentImg5 from '../assets/dent-img-5.jpg';
 import dentProfile from '../assets/dent-profile.jpg';
 import dermaProfile from '../assets/derma-profile.jpg';

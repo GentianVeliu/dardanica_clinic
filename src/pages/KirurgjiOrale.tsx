@@ -3,11 +3,8 @@ import { Link } from 'react-router-dom';
 import { ChevronRight, Shield, Award, Users, CheckCircle, Zap } from 'lucide-react';
 
 // Local asset imports
-import dentClinic1 from '../assets/dent-clinic-1.jpg';
 import dentClinic3 from '../assets/dent-clinic-3.jpg';
 import dentClinic4 from '../assets/dent-clinic-4.jpg';
-import dentImg2 from '../assets/dent-img-2.jpg';
-import dentImg3 from '../assets/dent-img-3.jpg';
 import dentImg5 from '../assets/dent-img-5.jpg';
 import FooterCTA from '../components/FooterCta';
 import img16 from '../assets/home/16.jpg';
