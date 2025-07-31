@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaUserMd } from 'react-icons/fa';
 
 // Assets
 import fillerClinic1 from '../assets/filler-clinic-1.jpg';

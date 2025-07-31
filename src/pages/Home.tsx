@@ -81,17 +81,18 @@ Me përkushtim maksimal ndaj cilësisë dhe mirëqenies së pacientit, Dr. Shkur
 
 const services = [
     {
-        img: stomatologyImg3,
-        title: 'Stomatologji',
-        desc: 'Trajtimet më moderne për shëndetin e dhëmbëve.',
-        slug: '/stomatologji'
-    },
-    {
         img: img7,
         title: 'Dermatologji',
         desc: 'Ofrojmë kujdes profesional për problemet tuaja lëkurore.',
         slug: '/dermatologji'
     },
+    {
+        img: stomatologyImg3,
+        title: 'Stomatologji',
+        desc: 'Trajtimet më moderne për shëndetin e dhëmbëve.',
+        slug: '/stomatologji'
+    },
+
     {
         img: img8,
         title: 'Mjekësi Estetike',
