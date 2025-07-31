@@ -30,14 +30,14 @@ const contactInfo = [
             </svg>
         ),
         title: 'Email',
-        info: 'info@dardanica-clinic.com',
+        info: 'dardanicaclinic@gmail.com',
         subInfo: 'Përgjigje brenda 24 orësh',
     },
 ];
 
 const workingHours = [
-    { day: 'Hënë – Premte', hours: '08:00 – 20:00' },
-    { day: 'Shtunë', hours: '09:00 – 15:00' },
+    { day: 'Hënë – Premte', hours: '10:00 – 20:00' },
+    { day: 'Shtunë', hours: '10:00 – 18:00' },
     { day: 'Dielë', hours: 'Mbyllur' },
 ];
 
@@ -55,7 +55,7 @@ const Contact: React.FC = () => {
                         Jemi Këtu për<span className="text-[#F7DD72]"> Ju</span>
                     </h1>
                     <p className="text-xl text-gray-200 max-w-3xl mx-auto">
-                        Jemi gjithmonë të gatshëm t'ju ndihmojmë. Na shkruani, na telefononi ose vizitoni zyrat tona moderne.
+                        Jemi gjithmonë të gatshëm t'ju ndihmojmë. Na shkruani, na telefononi ose vizitoni klinikën tonë moderne.
                     </p>
                 </div>
             </section>
@@ -141,8 +141,8 @@ const Contact: React.FC = () => {
 
             {/* CTA + Footer */}
             <FooterCTA
-                title="Jemi këtu për"
-                highlight="të ju ndihmojmë?"
+                title="Jemi këtu"
+                highlight="për t’ju ndihmuar."
                 description="Na kontaktoni për çdo pyetje ose rezervoni vizitën tuaj."
                 buttonText="Na Kontaktoni"
                 buttonLink="https://wa.me/38345448822"

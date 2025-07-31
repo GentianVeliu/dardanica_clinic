@@ -10,23 +10,40 @@ import dentImg2 from '../assets/dent-img-2.jpg';
 import dentImg3 from '../assets/dent-img-3.jpg';
 import dentImg5 from '../assets/dent-img-5.jpg';
 import FooterCTA from '../components/FooterCta';
+import img16 from '../assets/home/16.jpg';
 import img17 from '../assets/home/17.jpg';
 
 const procedures = [
-    { title: 'Pastrim Profesional', img: dentImg5, desc: 'Pastrim i thellë për dhëmbë të shëndetshëm me teknologji të avancuar.' },
-    { title: 'Mbushje dhe sherime dhembesh', img: dentClinic3, desc: 'Mbushje dentare me materiale cilësore dhe estetike.' },
-    { title: 'Rentgeni Retroalveolar', img: img17, desc: 'Rentgeni retroalveolar është një metodë që përdoret për të parë rrënjët e dhëmbëve.' },
-    { title: 'Kurora & Ura', img: dentClinic4, desc: 'Zëvendësim i dhëmbëve të dëmtuar me zgjidhje të qëndrueshme.' },
-    { title: 'Zbardhim Dhëmbësh', img: dentImg3, desc: 'Zbardhim profesional për një buzëqeshje më të ndritshme.' },
-    { title: 'Implant Dentar', img: dentImg2, desc: 'Implantime të sigurta dhe të qëndrueshme me garanci.' },
+    { title: 'Implantimi dentar për zëvendësimin e dhëmbëve të humbur', img: dentImg5, desc: 'Zëvendësim i përhershëm me implante të cilësisë së lartë.' },
+    { title: 'Ekstraktimi i dhëmbëve të impaktuar', img: dentClinic3, desc: 'Heqje e sigurt dhe minimale invazive e dhëmbëve të bllokuar.' },
+    { title: 'Kirurgjia dhe heqja e cistave dentare', img: img17, desc: 'Eliminim i cistave orale me procedurë kirurgjikale të lehtë.' },
+    { title: 'Denudimi i dhëmbëve për trajtim ortodontik', img: dentClinic4, desc: 'Ekspozim i dhëmbëve për të lehtësuar vendosjen e aparateve ortodontike.' },
+
 ];
 
 
 const faq = [
-    { q: 'Sa kohë zgjat një seancë pastrimi?', a: 'Një seancë pastrimi profesional zgjat rreth 30–45 minuta, varësisht nga gjendja e dhëmbëve tuaj.' },
-    { q: 'A është i dhimbshëm implantimi dentar?', a: 'Përdorim anestezi lokale dhe teknika moderne për të siguruar rehati maksimale gjatë gjithë procesit.' },
-    { q: 'Sa shpesh duhet të bëj kontroll?', a: 'Rekomandojmë kontrolle të rregullta çdo 6 muaj për parandalim dhe mirëmbajtje optimale.' },
-    { q: 'A pranoni sigurime shëndetësore?', a: 'Po, pranojmë shumë sigurime shëndetësore. Kontaktoni për më shumë detaje.' },
+    // Pyetjet për implantet dentare:
+    {
+        q: 'Çfarë janë implantet dentare?',
+        a: 'Janë vida titani që vendosen në nofull për të zëvendësuar rrënjën e dhëmbit të humbur.'
+    },
+    {
+        q: 'Cilat janë përparësitë e implanteve?',
+        a: 'Duken dhe ndihen si dhëmbët natyralë, nuk kërkojnë prishje të dhëmbëve fqinje dhe përmirësojnë funksionin e përtypjes.'
+    },
+    {
+        q: 'Sa kohë zgjasin implantet dentare?',
+        a: 'Me mirëmbajtje të duhur, implantet mund të zgjasin 10–20 vjet.'
+    },
+    {
+        q: 'Cilat janë fazat për vendosjen e një implanti?',
+        a: `1) Konsultimi dhe planifikimi 3D (ortopanoramik),  
+2) Vendosja kirurgjikale e implantit,  
+3) Periudha e osteointegrimit (3–6 muaj),  
+4) Vendosja e kurores protetike,  
+5) Kujdesi dhe kontrolli pas-operator.`
+    },
 ];
 
 const stats = [
@@ -39,13 +56,13 @@ const stats = [
 const benefits = [
     'Staf me përvojë profesionale dhe certifikime ndërkombëtare',
     'Teknologji të fundit për diagnostikim dhe trajtim',
-    'Metoda minimale invazive për rehati maksimale',
-    'Qendra me higjenë dhe standarde të larta medicale',
     'Konsultë individuale dhe plan trajtimi të personalizuar',
-    'Garanci për të gjitha shërbimet e ofruara'
+    'Staf i specializuar për kirurgji orale',
+    'Kushtet sterile të punës',
+    'Garanci për cilësi dhe përcjellje të mëtejshme të rastit'
 ];
 
-const Stomatologji: React.FC = () => {
+const KirurgjiOrale: React.FC = () => {
     const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
 
     return (
@@ -59,13 +76,13 @@ const Stomatologji: React.FC = () => {
                     <div className="max-w-4xl mx-auto text-center">
                         <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
                             <span className="bg-gradient-to-r from-white to-[#FEFE98] bg-clip-text text-transparent">
-                                Stomatologji
+                                Kirurgji
                             </span>
                             <br />
-                            <span className="text-white">Premium</span>
+                            <span className="text-white">Orale</span>
                         </h1>
                         <p className="text-xl sm:text-2xl mb-8 text-gray-200 max-w-2xl mx-auto leading-relaxed">
-                            Kujdes maksimal për dhëmbët tuaj me teknologji të fundit dhe staf të specializuar
+                            Trajtim kirurgjik oral me standarde të larta, pajisje të avancuara dhe staf specialistësh për rezultatet më të mira.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                             <Link
@@ -134,8 +151,7 @@ const Stomatologji: React.FC = () => {
                             Procedurat Tona të Specializuara
                         </h2>
                         <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                            Ofrojmë një gamë të plotë shërbimesh stomatologjike me teknologji të avancuar
-                            dhe qasje të personalizuar për çdo pacient
+                            Ofrojmë eksperiencë të plotë në kirurgjinë orale, me teknologji të fundit dhe trajtim të dedikuar për çdo pacient.
                         </p>
                     </div>
 
@@ -190,7 +206,7 @@ const Stomatologji: React.FC = () => {
                         <div className="lg:w-1/2">
                             <div className="relative">
                                 <img
-                                    src={dentClinic1}
+                                    src={img16}
                                     alt="Klinika Moderne"
                                     className="rounded-3xl shadow-2xl w-full object-cover h-96"
                                 />
@@ -274,9 +290,9 @@ const Stomatologji: React.FC = () => {
             </section>
 
             <FooterCTA
-                title="Doni një buzëqeshje "
-                highlight="mahnitëse?"
-                description="Rezervoni një konsultë falas për trajtime stomatologjike të avancuara."
+                title="Riktheni estetikën e "
+                highlight=" buzëqeshjes suaj!"
+                description="Rezervoni tani një konsultë falas me specialistët tanë të kirurgjisë orale dhe zbuloni trajtimet më të avancuara për rikthimin e buzëqeshjes tuaj."
                 buttonText="Rezervo Konsultë"
                 buttonLink="https://wa.me/38345448822"
                 showWorkingHours={false}
@@ -285,4 +301,4 @@ const Stomatologji: React.FC = () => {
     );
 };
 
-export default Stomatologji;
+export default KirurgjiOrale;

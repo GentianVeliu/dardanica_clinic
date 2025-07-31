@@ -10,6 +10,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfUse from './pages/TermsOfUse';
 import ComingSoon from './pages/ComingSoon';
 import { ChevronUp } from 'lucide-react';
+import KirurgjiOrale from './pages/KirurgjiOrale';
 
 const App: React.FC = () => (
   <Router>
@@ -20,6 +21,7 @@ const App: React.FC = () => (
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/dermatologji" element={<Dermatology />} />
+          <Route path="/kirurgji-orale" element={<KirurgjiOrale />} />
           <Route path="/stomatologji" element={<Stomatology />} />
           <Route path="/estetika" element={<Estetika />} />
           <Route path="/kontakt" element={<Contact />} />

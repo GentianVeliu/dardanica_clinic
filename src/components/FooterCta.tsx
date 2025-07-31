@@ -107,8 +107,9 @@ const FooterCTA: React.FC<FooterCTAProps> = ({
                         <h4 className="font-semibold mb-2">Shërbimet</h4>
                         <ul className="text-sm space-y-1">
                             <li><Link to="/dermatologji" className="hover:underline">Dermatologji</Link></li>
+                            <li><Link to="/estetika" className="hover:underline">Mjekësi Estetike</Link></li>
+                            <li><Link to="/kirurgji-orale" className="hover:underline">Kirurgji Orale</Link></li>
                             <li><Link to="/stomatologji" className="hover:underline">Stomatologji</Link></li>
-                            <li><Link to="/estetika" className="hover:underline">Trajtime Estetike</Link></li>
                         </ul>
                     </div>
 

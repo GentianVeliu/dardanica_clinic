@@ -9,6 +9,8 @@ import fillersImg from '../assets/filler-clinic-1.jpg';
 import dentImg5 from '../assets/dent-img-5.jpg';
 import dentProfile from '../assets/dent-profile.jpg';
 import dermaProfile from '../assets/derma-profile.jpg';
+import img7 from '../assets/home/7.jpg';
+import img8 from '../assets/home/8.jpg';
 
 import clinic1 from '../assets/clinic-1.jpg';
 import FooterCTA from '../components/FooterCta';
@@ -87,15 +89,15 @@ const services = [
         slug: '/stomatologji'
     },
     {
-        img: dermatologyImg,
+        img: img7,
         title: 'Dermatologji',
-        desc: 'Përkujdesje e lëkurës me teknologji të avancuar.',
+        desc: 'Ofrojmë kujdes profesional për problemet tuaja lëkurore.',
         slug: '/dermatologji'
     },
     {
-        img: fillersImg,
-        title: 'Estetika',
-        desc: 'Rinovim estetik për një pamje më të freskët.',
+        img: img8,
+        title: 'Mjekësi Estetike',
+        desc: 'Bëhu versioni më i mirë i vetes me trajtimet tona profesionale.',
         slug: '/estetika'
     },
 ];
@@ -149,17 +151,17 @@ const Home: React.FC = () => {
                             to="https://wa.me/38345448822"
                             target="_blank"
                             className="
-    inline-flex items-center justify-center
-    bg-gradient-to-r from-[#FEFE98] to-[#D3A54B]
-    text-[#0B2944] font-semibold
-    text-sm sm:text-base
-    px-6 sm:px-8 py-3 sm:py-4
-    rounded-full shadow-lg
-    hover:scale-105 transition-transform duration-300
+                                        inline-flex items-center justify-center
+                                        bg-gradient-to-r from-[#FEFE98] to-[#D3A54B]
+                                        text-[#0B2944] font-semibold
+                                        text-sm sm:text-base
+                                        px-6 sm:px-8 py-3 sm:py-4
+                                        rounded-full shadow-lg
+                                        hover:scale-105 transition-transform duration-300
 
-    /* responsive width */
-    w-full sm:w-auto min-w-[200px]
-  "
+                                        /* responsive width */
+                                        w-full sm:w-auto min-w-[200px]
+                                    "
                         >
                             Na Kontaktoni Sot
                         </Link>
@@ -266,10 +268,10 @@ const Home: React.FC = () => {
                             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#003566]">Përse të Zgjidhni Dardanica Clinic?</h2>
                             <ul className="space-y-2 text-base sm:text-lg text-[#003566]">
                                 {[
-                                    'Staf i Kualifikuar me përvojë ndërkombëtare',
-                                    'Teknologji Moderne dhe metoda inovative',
-                                    'Mjedis Premium për komfort maksimal',
-                                    'Qasje e Personalizuar për çdo pacient'
+                                    'Staf i kualifikuar me përvojë ndërkombëtare',
+                                    'Teknologji moderne dhe metoda inovative',
+                                    'Mjedis premium për komfort maksimal',
+                                    'Qasje e personalizuar për çdo pacient'
                                 ].map((item, idx) => (
                                     <li key={idx} className="flex items-start gap-2">
                                         <Star className="h-6 w-6 text-[#003566] flex-shrink-0" />
