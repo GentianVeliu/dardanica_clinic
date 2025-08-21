@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Star, Award, Shield, Heart, ChevronDown, ChevronUp, ChevronRight } from 'lucide-react';
+import { Star, Award, Shield, Heart, ChevronRight } from 'lucide-react';
 
 // Local images
 import dermaClinic1 from '../assets/derma-clinic-1.jpg';
@@ -123,9 +123,6 @@ const galleryImages = [
 const Dermatologji: React.FC = () => {
     const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
 
-    const toggleFaq = (index: number) => {
-        setExpandedFaq(expandedFaq === index ? null : index);
-    };
 
     return (
         <>
