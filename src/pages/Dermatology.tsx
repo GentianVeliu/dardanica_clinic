@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Star, Award, Shield, Heart, ChevronRight } from 'lucide-react';
+import logoDC from '../assets/logo-dc-shadow.png';
+
 
 // Local images
 import dermaClinic1 from '../assets/derma-clinic-1.jpg';
@@ -10,75 +12,55 @@ import dermaImg2 from '../assets/derma-img-2.jpg';
 import dermaImg3 from '../assets/derma-img-3.jpg';
 import FooterCTA from '../components/FooterCta';
 
-import filler1 from '../assets/filler-clinic-1.jpg';
-import filler2 from '../assets/filler-clinic-2.jpg';
-import filler3 from '../assets/filler-clinic-3.jpg';
 
-interface Treatment {
-    img: string;
-    title: string;
-    desc: string;
-    duration: string;
-    sessions: string;
-    slug: string;
-}
-
-const treatments: Treatment[] = [
+const conditions = [
     {
-        img: dermaImg3,
-        title: 'Dermatologji Klinike',
-        desc: 'Diagnostikë dhe trajtime të avancuara dermatologjike.',
-        duration: '60 min',
-        sessions: '1 seancë',
-        slug: '/dermatologji'
+        title: 'Infeksionet bakteriale',
+        desc: 'Stafilodermite, folikulite, impetigo, erizipelë, celulit.',
     },
     {
-        img: dermaImg2,
-        title: 'Estetika Lëkure',
-        desc: 'Peeling, mikropigmentim dhe rinovim lëkure.',
-        duration: '45 min',
-        sessions: '3 seanca',
-        slug: '/estetika'
+        title: 'Infeksionet virale',
+        desc: 'Herpes simplex, Herpes zoster, lythat (verrucat).',
     },
     {
-        img: dermaImg1,
-        title: 'Laser Terapi',
-        desc: 'Trajtim me laser për njolla dhe skuqje.',
-        duration: '30 min',
-        sessions: '5 seanca',
-        slug: '/dermatologji'
+        title: 'Infeksionet fungale',
+        desc: 'Tinea – myku i trupit, kokës dhe thonjve.',
     },
     {
-        img: filler1,
-        title: 'Filler Hyaluronic',
-        desc: 'Rinovim volumetrik me filler të pastër.',
-        duration: '30 min',
-        sessions: '1 seancë',
-        slug: '/estetika'
+        title: 'Sëmundjet e thonjve',
+        desc: 'Onikomikoza dhe çrregullime të pllakës së thoit.',
     },
     {
-        img: filler2,
-        title: 'Trajtim antirrudhë',
-        desc: 'Trajtim kundër rrudhave',
-        duration: '20 min',
-        sessions: '1 seancë',
-        slug: '/estetika'
+        title: 'Sëmundjet e flokëve dhe skalpit',
+        desc: 'Alopecitë, dermatit seborrheik, infeksione.',
     },
     {
-        img: filler3,
-        title: 'Mikrofluidë Plasma',
-        desc: 'Trajtim PRP për rinovim natyral.',
-        duration: '50 min',
-        sessions: '2 seanca',
-        slug: '/estetika'
+        title: 'Ndryshimet tumorale & nishanet',
+        desc: 'Vlerësim dermatoskopik dhe ndjekje.',
+    },
+    {
+        title: 'Sëmundjet autoimune të lëkurës',
+        desc: 'Vlerësim dhe trajtim sipas protokolleve.',
+    },
+    {
+        title: 'Probleme estetike & kozmetike',
+        desc: 'Hiperpigmentime, akne, shenja, pore të zgjeruara.',
     },
 ];
 
 const faq = [
-    { q: 'Sa seanca duhen për peeling kimik?', a: 'Zakonisht 3-4 seanca, me një pauzë 10-14 ditore ndërmjet tyre për rezultate optimale.' },
-    { q: 'A ka dhimbje trajtimi me laser?', a: 'Ndjesi e lehtë shpimi nën anestezi lokale; shumica e pacientëve e tolerojnë mirë procedurën.' },
-    { q: 'Sa kohë duhet për rikuperim pas peelingut?', a: 'Zakonisht 3-7 ditë varësisht nga thellësia e trajtimit.' },
-    { q: 'A janë trajtimet e sigurt për të gjitha llojet e lëkurës?', a: 'Po, por bëjmë një analizë të detajuar para çdo trajtimi për të siguruar rezultatet më të mira.' },
+    {
+        q: 'Çfarë mund të përdor për puçrrat në fytyrë?',
+        a: 'Trajtimi i akneve është individual: varet nga tipi, shkalla e pezmatimit dhe lloji i lëkurës. Mund të variojë nga kremra të lehta, te terapi orale dhe trajtime dermatologjike bashkëkohore. Hapi i parë i duhur është vlerësimi profesional nga dermatologu.'
+    },
+    {
+        q: 'Kjo skuqje që më kruhet — është alergji, ekzemë apo myk?',
+        a: 'Dermatiti/ekzema, reaksionet alergjike dhe infeksionet fungale shpesh duken të ngjashme. Pa një ekzaminim dermatologjik të afërt nuk mund të përcaktohet saktë shkaku. Trajtimi ndryshon sipas diagnozës, prandaj rekomandohet vizitë profesionale.'
+    },
+    {
+        q: 'Po më bien flokët shumë, çfarë duhet të bëj?',
+        a: 'Rënia e flokëve mund të vijë nga stres, mungesë vitaminash, çrregullime hormonale ose faktorë gjenetikë. Ndonjëherë është kalimtare, por shpesh kërkon vlerësim të detajuar. Pas identifikimit të shkakut me konsultë dhe analiza, përcaktohet trajtimi i përshtatshëm.'
+    }
 ];
 
 const stats = [
@@ -230,44 +212,44 @@ const Dermatologji: React.FC = () => {
                             <span className="block text-3xl sm:text-4xl font-light text-gray-600 mt-2">Profesionale</span>
                         </h2>
                         <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-                            Ofrojmë një gamë të plotë trajtimesh dermatologjike duke përdorur teknologjitë më të fundit dhe teknikat më efikase për rezultate të shkëlqyera.
+                            Dermatologu trajton një spektër të gjerë problemesh që lidhen me lëkurën, flokët, thonjtë dhe mukozat.
+                        </p>
+                        <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mt-3">
+                            Më poshtë janë disa nga sëmundjet më të zakonshme që trajtojmë.
+                            Sëmundjet inflamatore të lëkurës përfshijnë: akne (puçrrat), dermatitet (ekzemë, dermatit atopik, i kontaktit, seborrheik), psoriaza, rozacea, etj.
                         </p>
                     </div>
 
                     {/* Treatments grid */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4 sm:px-6 lg:px-12">
-                        {treatments.map((t) => (
-                            <div
-                                key={t.title}
-                                className="flex flex-col bg-white rounded-2xl shadow-md hover:shadow-lg transition p-6"
-                            >
-                                <div className="h-48 w-full overflow-hidden rounded-xl mb-4">
-                                    <img
-                                        src={t.img}
-                                        alt={t.title}
-                                        className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
-                                    />
-                                </div>
-                                <h3 className="text-xl font-semibold text-[#0B2944] mb-2">{t.title}</h3>
-                                <p className="text-gray-600 text-sm flex-grow mb-4">{t.desc}</p>
-                                <div className="flex items-center text-sm text-gray-500 mb-4 space-x-4">
-                                    <span className="bg-gray-100 px-3 py-1 rounded-full">{t.duration}</span>
-                                    <span className="bg-gray-100 px-3 py-1 rounded-full">{t.sessions}</span>
-                                </div>
-                                <Link
-                                    to={t.slug}
-                                    className="mt-4 inline-block 
-                                    bg-gradient-to-r from-[#FEFE98] to-[#D3A54B] 
-                                    text-[#0B2944] font-semibold 
-                                    px-5 py-2 rounded-full 
-                                    shadow hover:scale-105 
-                                    transition-transform duration-300 text-center"
-                                >
-                                    Rezervo Tani
-                                </Link>
+                    <section className="py-16">
+                        <div className="container mx-auto px-8">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                                {conditions.map((b) => (
+                                    <div
+                                        key={b.title}
+                                        className="group bg-white p-8 rounded-3xl shadow-md hover:shadow-xl
+                     transform hover:-translate-y-2 transition-all duration-300"
+                                    >
+                                        {/* Logo */}
+                                        <div className="w-12 h-12 mb-4 mx-auto">
+                                            <img
+                                                src={logoDC}
+                                                alt="Dardanica Clinic Logo"
+                                                className="w-full h-full object-contain"
+                                            />
+                                        </div>
+
+                                        <h3 className="text-xl font-semibold text-[#0B2944] mb-2 text-center">
+                                            {b.title}
+                                        </h3>
+                                        <p className="text-gray-600 leading-relaxed text-sm text-center">
+                                            {b.desc}
+                                        </p>
+                                    </div>
+                                ))}
                             </div>
-                        ))}
-                    </div>
+                        </div>
+                    </section>
 
 
                 </div>
