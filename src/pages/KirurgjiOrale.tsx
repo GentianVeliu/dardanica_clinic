@@ -4,17 +4,17 @@ import { ChevronRight, Shield, Award, Users, CheckCircle, Zap } from 'lucide-rea
 
 // Local asset imports
 import dentClinic3 from '../assets/dent-clinic-3.jpg';
-import dentClinic4 from '../assets/dent-clinic-4.jpg';
-import dentImg5 from '../assets/dent-img-5.jpg';
 import FooterCTA from '../components/FooterCta';
 import img16 from '../assets/home/16.jpg';
 import img17 from '../assets/home/17.jpg';
+import kirurgji2 from '../assets/kirurgji_1.jpg'
+import kirurgji3 from '../assets/kirurgji_3.jpg'
 
 const procedures = [
-    { title: 'Implantimi dentar për zëvendësimin e dhëmbëve të humbur', img: dentImg5, desc: 'Zëvendësim i përhershëm me implante të cilësisë së lartë.' },
+    { title: 'Implantimi dentar për zëvendësimin e dhëmbëve të humbur', img: kirurgji2, desc: 'Zëvendësim i përhershëm me implante të cilësisë së lartë.' },
     { title: 'Ekstraktimi i dhëmbëve të impaktuar', img: dentClinic3, desc: 'Heqje e sigurt dhe minimale invazive e dhëmbëve të bllokuar.' },
     { title: 'Kirurgjia dhe heqja e cistave dentare', img: img17, desc: 'Eliminim i cistave orale me procedurë kirurgjikale të lehtë.' },
-    { title: 'Denudimi i dhëmbëve për trajtim ortodontik', img: dentClinic4, desc: 'Ekspozim i dhëmbëve për të lehtësuar vendosjen e aparateve ortodontike.' },
+    { title: 'Denudimi i dhëmbëve për trajtim ortodontik', img: kirurgji3, desc: 'Ekspozim i dhëmbëve për të lehtësuar vendosjen e aparateve ortodontike.' },
 
 ];
 

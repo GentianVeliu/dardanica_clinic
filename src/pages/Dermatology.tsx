@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Star, Award, Shield, Heart, ChevronDown, ChevronUp } from 'lucide-react';
+import { Star, Award, Shield, Heart, ChevronDown, ChevronUp, ChevronRight } from 'lucide-react';
 
 // Local images
 import dermaClinic1 from '../assets/derma-clinic-1.jpg';
@@ -58,8 +58,8 @@ const treatments: Treatment[] = [
     },
     {
         img: filler2,
-        title: 'Botox & Muskuj',
-        desc: 'Relaksim muskujsh për rrudha të shpejta.',
+        title: 'Trajtim antirrudhë',
+        desc: 'Trajtim kundër rrudhave',
         duration: '20 min',
         sessions: '1 seancë',
         slug: '/estetika'
@@ -313,48 +313,48 @@ const Dermatologji: React.FC = () => {
                 </div>
             </section >
 
-            {/* FAQ Section */}
-            < section className="py-20 bg-white" >
-                <div className="container mx-auto px-4 sm:px-8 lg:px-24 max-w-4xl">
-                    <div className="text-center mb-16">
-                        <h2 className="text-4xl sm:text-5xl font-bold text-[#0B2944] mb-6">
-                            Pyetjet e Shpeshta
-                        </h2>
-                        <p className="text-xl text-gray-600">
-                            Gjej përgjigjet për pyetjet më të zakonshme rreth trajtimeve tona.
-                        </p>
-                    </div>
+            <section className="py-20 bg-gray-50">
+                <div className="container mx-auto px-4 sm:px-8 lg:px-24">
+                    <div className="max-w-4xl mx-auto">
+                        <div className="text-center mb-16">
+                            <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-[#003566]">
+                                Pyetjet e Shpeshta
+                            </h2>
+                            <p className="text-xl text-gray-600">
+                                Gjeni përgjigjet për pyetjet më të zakonshme rreth shërbimeve tona
+                            </p>
+                        </div>
 
-                    <div className="space-y-4">
-                        {faq.map((item, index) => (
-                            <div key={index} className="rounded-lg border bg-white text-gray-900 shadow-sm overflow-hidden">
-                                <button
-                                    onClick={() => toggleFaq(index)}
-                                    className="w-full text-left p-6 hover:bg-gray-50 transition-colors duration-200"
+                        <div className="space-y-4">
+                            {faq.map((item, idx) => (
+                                <div
+                                    key={idx}
+                                    className="bg-white rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden"
                                 >
-                                    <div className="flex justify-between items-center">
-                                        <h3 className="text-lg font-semibold text-[#0B2944] pr-4">
+                                    <button
+                                        onClick={() => setExpandedFaq(expandedFaq === idx ? null : idx)}
+                                        className="w-full text-left p-6 flex justify-between items-center hover:bg-gray-50 transition-colors duration-300"
+                                    >
+                                        <h3 className="text-lg font-semibold text-[#003566] pr-4">
                                             {item.q}
                                         </h3>
-                                        {expandedFaq === index ? (
-                                            <ChevronUp className="w-5 h-5 text-[#0B2944] flex-shrink-0" />
-                                        ) : (
-                                            <ChevronDown className="w-5 h-5 text-[#0B2944] flex-shrink-0" />
-                                        )}
-                                    </div>
-                                </button>
-                                {expandedFaq === index && (
-                                    <div className="px-6 pb-6 pt-0">
-                                        <p className="text-gray-700 leading-relaxed">
+                                        <ChevronRight
+                                            className={`w-5 h-5 text-[#003566] transition-transform duration-300 ${expandedFaq === idx ? 'rotate-90' : ''
+                                                }`}
+                                        />
+                                    </button>
+
+                                    {expandedFaq === idx && (
+                                        <div className="px-6 pb-6 text-gray-600 leading-relaxed animate-fade-in">
                                             {item.a}
-                                        </p>
-                                    </div>
-                                )}
-                            </div>
-                        ))}
+                                        </div>
+                                    )}
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
-            </section >
+            </section>
 
             {/* Gallery Section */}
             < section className="py-20 bg-gradient-to-b from-gray-50 to-white" >

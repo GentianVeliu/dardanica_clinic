@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 // Assets
@@ -15,6 +15,12 @@ import logoDC from '../assets/logo-dc-shadow.png';
 import estetik1 from '../assets/estetik1.jpg';
 import estetik2 from '../assets/estetik2.jpg';
 import estetik4 from '../assets/estetik4.jpg';
+import estetika1 from '../assets/estetika-1.jpg'
+import estetika2 from '../assets/estetika-2.jpg'
+import estetika3 from '../assets/estetika-3.jpg'
+import estetika4 from '../assets/estetika-4.jpg'
+import estetika5 from '../assets/estetika-5.jpg'
+
 
 const benefits = [
     {
@@ -31,11 +37,11 @@ const benefits = [
     },
     {
         title: 'Double Tite (RF Microneedling + Injection)',
-        desc: 'Shtrëngim dhe tonifikim i lëkurës, rritje të prodhimit të kolagjenit, përmirësim i strukturës së lëkurës.'
+        desc: 'Shtrengim dhe tonifikim i lekures, rritje te prodhimit te kolagjenit, permiresimi i struktures se lekures, reduktim i shenjave te akneve, poreve, rrudhave te imta, njollave, hiperpigmentimeve.'
     },
     {
         title: 'Skin Booster (Mezoterapi)',
-        desc: 'Profhilo, Karisma RH Collagen, Nucleofill Strong, Nucleofill Eyes, Croma Revitalis, Rejuran.'
+        desc: 'Profhilo, Neauvia Hydro Deluxe, Karisma Rh Collagen, Nucleofill Strong, Nucleofill Eyes, Croma Revitalis, Rejuran.'
     },
     {
         title: 'Peeling (PQ Age Evolution, PRX-T33)',
@@ -54,7 +60,7 @@ const benefits = [
 
 const faq = [
     {
-        q: 'Sa zgjat efekti i botoksit?',
+        q: 'Sa zgjat efekti i trajtimit antirrudhë?',
         a: 'Rreth 4–6 muaj, varësisht nga metabolizmi.'
     },
     {
@@ -87,11 +93,17 @@ const stats = [
 
 
 const showcaseImgs = [estetik1, estetik2, fillerImg2, estetik4];
-const gallery = [fillerClinic1, fillerClinic2, fillerClinic3, fillerImg1, fillerImg2, fillerImg3, fillerImg4];
+const gallery = [fillerClinic1, fillerClinic2, fillerClinic3, fillerImg1, fillerImg2, fillerImg3, fillerImg4, estetika1, estetika2, estetika3, estetika4, estetika5];
 
 const Estetika: React.FC = () => {
     const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
+    const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
 
+    useEffect(() => {
+        const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setLightboxSrc(null);
+        window.addEventListener('keydown', onKey);
+        return () => window.removeEventListener('keydown', onKey);
+    }, []);
 
     return (
         <>
@@ -211,7 +223,11 @@ const Estetika: React.FC = () => {
 
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
                         {gallery.map((src, i) => (
-                            <div key={i} className="group relative overflow-hidden rounded-xl">
+                            <div
+                                key={i}
+                                className="group relative overflow-hidden rounded-xl cursor-pointer"
+                                onClick={() => setLightboxSrc(src)}
+                            >
                                 <img
                                     src={src}
                                     alt={`Estetika ${i + 1}`}
@@ -273,6 +289,38 @@ const Estetika: React.FC = () => {
                 buttonLink="https://wa.me/38345448822"
                 showWorkingHours={false}
             />
+
+            {lightboxSrc && (
+                <div
+                    className="fixed inset-0 z-50 flex items-center justify-center"
+                    onClick={() => setLightboxSrc(null)}
+                >
+                    {/* Overlay */}
+                    <div className="absolute inset-0 bg-black/90 backdrop-blur-sm" />
+
+                    {/* Close */}
+                    <button
+                        className="fixed top-4 right-4 text-white/90 hover:text-white bg-black/50 hover:bg-black/70 rounded-full p-2"
+                        onClick={() => setLightboxSrc(null)}
+                        aria-label="Mbyll foton"
+                    >
+                        ✕
+                    </button>
+
+                    {/* Content */}
+                    <div
+                        className="relative z-10 p-4 md:p-6"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        <img
+                            src={lightboxSrc}
+                            alt="Foto e zmadhuar"
+                            className="max-w-[92vw] max-h-[85vh] w-auto h-auto object-contain rounded-xl shadow-2xl"
+                        />
+                    </div>
+                </div>
+            )}
+
         </>
     );
 };
